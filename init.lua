@@ -1,0 +1,8 @@
+print("Hallo! ^_^")
+require("plugins")
+require("settings")
+require("keymaps")
+require("treesitter-config")
+require("telescope-config")
+require("neo-tree-config")
+require("lsp-config")
