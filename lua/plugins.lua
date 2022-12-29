@@ -38,6 +38,13 @@ require('packer').startup(function(use)
         end,
     }
 
+    -- Scrollbar
+    use { "petertriho/nvim-scrollbar",
+        config = function() require("scrollbar").setup()
+        end
+    }
+
+
     -- Git related plugins
     use { 'lewis6991/gitsigns.nvim',
         config = function() require('gitsigns').setup {
@@ -49,10 +56,12 @@ require('packer').startup(function(use)
                     changedelete = { text = '~' },
                 },
             }
+            require("scrollbar.handlers.gitsigns").setup()
         end
     }
 
     use 'navarasu/onedark.nvim' -- Theme inspired by Atom
+    -- Fancier statusline
     use { 'nvim-lualine/lualine.nvim',
         config = function() require('lualine').setup {
                 options = {
@@ -63,14 +72,9 @@ require('packer').startup(function(use)
                 },
             }
         end
-    } -- Fancier statusline
-    use { 'lukas-reineke/indent-blankline.nvim',
-        config = function() require('indent_blankline').setup {
-                char = '┊',
-                show_trailing_blankline_indent = false,
-            }
-        end
-    } -- Add indentation guides even on blank lines
+    }
+    -- Add indentation guides even on blank lines
+    use { 'lukas-reineke/indent-blankline.nvim' }
     -- Fuzzy Finder (files, lsp, etc)
     use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
     use { 'mhinz/vim-startify' }
@@ -97,28 +101,6 @@ require('packer').startup(function(use)
                 direction = "float",
                 close_on_exit = true,
                 shell = vim.o.shell
-            })
-        end
-    }
-    use { 'simrat39/rust-tools.nvim',
-        config = function() require('rust-tools').setup({
-                tools = {
-                    autoSetHints = true,
-                    inlay_hints = {
-                        show_parameter_hints = true,
-                        parameter_hints_prefix = "<- ",
-                        other_hints_prefix = "=> ",
-                    },
-                },
-                server = {
-                    settings = {
-                        ["rust-analyzer"] = {
-                            checkOnSave = {
-                                command = "clippy"
-                            },
-                        }
-                    }
-                }
             })
         end
     }

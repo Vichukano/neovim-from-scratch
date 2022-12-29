@@ -4,16 +4,7 @@ if not enabled then
     return
 end
 
-telescope.setup {
-    defaults = {
-        mappings = {
-            i = {
-                ['<C-p>'] = false,
-                ['<C-n>'] = false,
-            },
-        },
-    },
-}
+telescope.setup()
 
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })

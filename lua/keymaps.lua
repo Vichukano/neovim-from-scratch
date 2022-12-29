@@ -31,10 +31,10 @@ vim.keymap.set('n', '<leader>c', ':bd!<CR>', default_opts) -- закрыть т�
 vim.keymap.set('n', '<leader>wc', '<C-w>c', default_opts) -- закрыть текущее окно
 vim.keymap.set('n', '<leader>wv', '<C-w>v', default_opts) -- разделить по вертикали
 vim.keymap.set('n', '<leader>ws', '<C-w>s', default_opts) -- разделить по горизонтали
-vim.keymap.set('n', '<A-C><down>', '<C-w>-', default_opts)
-vim.keymap.set('n', '<A-C><up>', '<C-w>+', default_opts)
-vim.keymap.set('n', '<A-C><left>', '<C-w><', default_opts)
-vim.keymap.set('n', '<A-C><right>', '<C-w>>', default_opts)
+vim.keymap.set('n', '<A-C-down>', '<C-w>-', default_opts)
+vim.keymap.set('n', '<A-C-up>', '<C-w>+', default_opts)
+vim.keymap.set('n', '<A-C-left>', '<C-w><', default_opts)
+vim.keymap.set('n', '<A-C-right>', '<C-w>>', default_opts)
 -- Move text up and down
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<CR>==", default_opts)
 vim.keymap.set("n", "<A-k>", "<cmd>m .-2<CR>==", default_opts)

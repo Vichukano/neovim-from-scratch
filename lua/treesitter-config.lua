@@ -4,8 +4,8 @@ if not enable then
     return
 end
 
-treesitter.setup {
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim' },
+treesitter.setup({
+    ensure_installed = { 'c', 'lua', 'rust', 'help', 'vim' },
     highlight = { enable = true },
-    indent = { enable = true, disable = { 'python' } }
-}
+    indent = { enable = true }
+})

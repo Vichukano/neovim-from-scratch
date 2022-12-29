@@ -25,14 +25,16 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme onedark]]
+local enabled, _ = pcall(require, 'onedark')
+if enabled then
+    vim.cmd [[colorscheme onedark]]
+end
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
 -- Other
 vim.opt.cursorline = true
-vim.opt.spelllang = { 'en_us', 'ru' }
 vim.opt.fileencoding = 'utf-8'
 -----------------------------------------------------------
 -- Tabs
