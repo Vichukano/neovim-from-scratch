@@ -124,6 +124,9 @@ require('packer').startup(function(use)
         end
     })
 
+    -- Test runner
+    use { "klen/nvim-test" }
+
     if is_bootstrap then
         require('packer').sync()
     end

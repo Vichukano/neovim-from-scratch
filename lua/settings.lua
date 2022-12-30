@@ -19,6 +19,10 @@ vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+-- Copy and paste to system clipboard
+
+vim.cmd [[set clipboard=unnamedplus]]
+
 -- Decrease update time
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
@@ -36,6 +40,16 @@ vim.o.completeopt = 'menuone,noselect'
 -- Other
 vim.opt.cursorline = true
 vim.opt.fileencoding = 'utf-8'
+vim.opt.list = false
+vim.opt.listchars = {
+    tab = "▸ ",
+    nbsp = "⍽",
+    extends = "⟩",
+    precedes = "⟨",
+    trail = "-",
+    space = ".",
+    eol = "↲",
+  }
 -----------------------------------------------------------
 -- Tabs
 -----------------------------------------------------------

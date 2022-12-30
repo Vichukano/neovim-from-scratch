@@ -1,4 +1,4 @@
-local enable, treesitter = pcall(require, 'nvim-treesitter')
+local enable, treesitter = pcall(require, 'nvim-treesitter.configs')
 if not enable then
     print("Treesitter not found!")
     return

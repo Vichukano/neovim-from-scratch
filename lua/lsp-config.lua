@@ -22,7 +22,7 @@ local on_attach = function(_, bufnr)
 
     nmap('<leader>lr', vim.lsp.buf.rename, 'Rename')
     nmap('<leader>la', vim.lsp.buf.code_action, 'Code Action')
-    nmap('<leader>lf', ":Format<CR>", '[F]ormat [Code')
+    nmap('<leader>lf', ":Format<CR>", '[F]ormat [Code]')
     nmap('<leader>ld', '<cmd>lua vim.diagnostic.open_float()<CR>', "LSP Diagnostic Open Float")
 
     nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')

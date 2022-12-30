@@ -5,6 +5,9 @@ vim.g.maplocalleader = ' '
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+-- Включить/отключить специальные символы
+vim.keymap.set('n', '<leader>ss', '<cmd>set list!<CR>', { desc = "Show special simbols" })
+
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -47,3 +50,8 @@ vim.keymap.set('i', '(', '()<Esc>ha', default_opts)
 vim.keymap.set('i', '[', '[]<Esc>ha', default_opts)
 vim.keymap.set('i', [[']], [[''<Esc>ha]], default_opts)
 vim.keymap.set('i', [["]], [[""<Esc>ha]], default_opts)
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "LSP Diagnostic Prev" })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "LSP Diagnostic Prev" })
+vim.keymap.set('n', '<leader>ll', vim.diagnostic.setloclist, { desc = "LSP Diagnostic Open List" })
