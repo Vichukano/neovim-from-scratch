@@ -24,7 +24,7 @@ local on_attach = function(_, bufnr)
     nmap('<leader>la', vim.lsp.buf.code_action, 'Code Action')
     nmap('<leader>lf', ":Format<CR>", '[F]ormat [Code]')
     nmap('<leader>ld', '<cmd>lua vim.diagnostic.open_float()<CR>', "LSP Diagnostic Open Float")
-
+    nmap('<leader>ll', vim.diagnostic.setloclist, "LSP Diagnostic Open List")
     nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
     nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
     nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
@@ -36,11 +36,6 @@ local on_attach = function(_, bufnr)
 
     -- Lesser used LSP functionality
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-    nmap('<leader>lwa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-    nmap('<leader>lwr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-    nmap('<leader>lwl', function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, '[W]orkspace [L]ist Folders')
 end
 
 -- Enable the following language servers
@@ -53,6 +48,7 @@ local servers = {
     -- gopls = {},
     -- pyright = {},
     rust_analyzer = {},
+    jdtls = {},
     -- tsserver = {},
 
     sumneko_lua = {

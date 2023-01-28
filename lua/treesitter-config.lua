@@ -5,7 +5,7 @@ if not enable then
 end
 
 treesitter.setup({
-    ensure_installed = { 'c', 'lua', 'rust', 'help', 'vim' },
+    ensure_installed = { 'c', 'lua', 'rust', 'help', 'vim', 'java' },
     highlight = { enable = true },
     indent = { enable = true }
 })

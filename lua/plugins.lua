@@ -44,7 +44,6 @@ require('packer').startup(function(use)
         end
     }
 
-
     -- Git related plugins
     use { 'lewis6991/gitsigns.nvim',
         config = function() require('gitsigns').setup {
@@ -126,6 +125,9 @@ require('packer').startup(function(use)
 
     -- Test runner
     use { "klen/nvim-test" }
+
+    -- Java LSP
+    use {"mfussenegger/nvim-jdtls"}
 
     if is_bootstrap then
         require('packer').sync()

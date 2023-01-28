@@ -7,4 +7,6 @@ Requirements:
 - For telescope:
 -- fd-find
 -- ripgrep
-
+- For java lsp
+-- java 17
+-- python 3.9
