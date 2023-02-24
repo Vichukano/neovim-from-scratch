@@ -1,5 +1,5 @@
 -- [[ Setting options ]]
-
+vim.opt.swapfile = false
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -30,9 +30,9 @@ vim.wo.signcolumn = 'yes'
 -- Set colorscheme
 vim.o.termguicolors = true
 vim.o.background = "dark"
-local enabled, _ = pcall(require, 'catppuccin')
+local enabled, _ = pcall(require, 'kanagawa')
 if enabled then
-    vim.cmd [[colorscheme catppuccin-frappe]]
+    vim.cmd [[colorscheme kanagawa]]
 end
 
 -- Set completeopt to have a better completion experience

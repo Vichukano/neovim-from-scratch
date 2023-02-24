@@ -42,13 +42,13 @@ require('packer').startup(function(use)
         end
     }
     -- colorschemes
-    use { "catppuccin/nvim", as = "catppuccin" }
+    use "rebelot/kanagawa.nvim"
     -- Fancier statusline
     use { 'nvim-lualine/lualine.nvim',
         config = function() require('lualine').setup {
                 options = {
                     icons_enabled = false,
-                    theme = 'catppuccin',
+                    theme = 'kanagawa',
                     component_separators = '|',
                     section_separators = '',
                 },
@@ -94,6 +94,10 @@ require('packer').startup(function(use)
             require("bufferline").setup {}
         end
     })
+    use {
+	    "windwp/nvim-autopairs",
+      config = function() require("nvim-autopairs").setup {} end
+    }
 
     if is_bootstrap then
         require('packer').sync()

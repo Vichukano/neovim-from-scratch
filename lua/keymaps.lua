@@ -9,9 +9,6 @@ map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Включить/отключить специальные символы
 map('n', '<leader>ss', '<cmd>set list!<CR>', { desc = "Show special simbols" })
--- Remap for dealing with word wrap
-map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 -- Сохранить содержимое по CTRL-S
 map('n', '<C-s>', '<cmd>w!<CR>', default_opts)
 -- Перемещение в режиме редактирования
@@ -27,10 +24,10 @@ map('n', '<C-h>', '<C-w>h', default_opts)
 map('n', '<C-l>', '<C-w>l', default_opts)
 map('n', '<C-j>', '<C-w>j', default_opts)
 map('n', '<C-k>', '<C-w>k', default_opts)
-map('n', '<leader>c', ':bd!<CR>', default_opts) -- закрыть текущий буфер
-map('n', '<leader>wc', '<C-w>c', default_opts) -- закрыть текущее окно
-map('n', '<leader>wv', '<C-w>v', default_opts) -- разделить по вертикали
-map('n', '<leader>ws', '<C-w>s', default_opts) -- разделить по горизонтали
+map('n', '<leader>c', ':bd!<CR>', { desc = "Close this buffer" }) -- закрыть текущий буфер
+map('n', '<leader>wc', '<C-w>c', { desc = "Close this window" }) -- закрыть текущее окно
+map('n', '<leader>w|', '<C-w>v', { desc = "Split window verical" }) -- разделить по вертикали
+map('n', '<leader>w-', '<C-w>s', { desc = "Split window horizon" }) -- разделить по горизонтали
 map('n', '<A-C-down>', '<C-w>-', default_opts)
 map('n', '<A-C-up>', '<C-w>+', default_opts)
 map('n', '<A-C-left>', '<C-w><', default_opts)
@@ -43,14 +40,14 @@ map("n", "<C-d>", "<C-d>zz", default_opts)
 map("n", "<C-u>", "<C-u>zz", default_opts)
 -- Файловый менеджер
 map('n', '<leader>e', '<cmd>NeoTreeShowToggle<CR>', { desc = "File Explorer" })
+
+-- Diagnostic keymaps
+map('n', '<leader>ld', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = "LSP Diagnostic Open Float" })
 -- Автокомплит для скобок
 map('i', '{', '{}<Esc>ha', default_opts)
 map('i', '(', '()<Esc>ha', default_opts)
 map('i', '[', '[]<Esc>ha', default_opts)
 map('i', [[']], [[''<Esc>ha]], default_opts)
 map('i', [["]], [[""<Esc>ha]], default_opts)
-
--- Diagnostic keymaps
-map('n', '<leader>ld', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = "LSP Diagnostic Open Float" })
 map('n', '[d', vim.diagnostic.goto_prev, { desc = "LSP Diagnostic Prev" })
 map('n', ']d', vim.diagnostic.goto_next, { desc = "LSP Diagnostic Prev" })
