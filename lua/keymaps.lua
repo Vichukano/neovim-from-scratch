@@ -42,7 +42,7 @@ map("n", "<A-k>", "<cmd>m .-2<CR>==", default_opts)
 map("n", "<C-d>", "<C-d>zz", default_opts)
 map("n", "<C-u>", "<C-u>zz", default_opts)
 -- Файловый менеджер
-map('n', '<leader>e', '<cmd>Neotree toggle<CR>', { desc = "File Explorer" })
+map('n', '<leader>e', '<cmd>NeoTreeShowToggle<CR>', { desc = "File Explorer" })
 -- Автокомплит для скобок
 map('i', '{', '{}<Esc>ha', default_opts)
 map('i', '(', '()<Esc>ha', default_opts)

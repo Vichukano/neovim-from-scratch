@@ -10,40 +10,24 @@ end
 require('packer').startup(function(use)
     -- Package manager
     use 'wbthomason/packer.nvim'
-
     use { -- LSP Configuration & Plugins
         'neovim/nvim-lspconfig',
         requires = {
             -- Automatically install LSPs to stdpath for neovim
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
-
-            -- Useful status updates for LSP
-            'j-hui/fidget.nvim',
-
-            -- Additional lua configuration, makes nvim stuff amazing
-            'folke/neodev.nvim',
         },
     }
-
     use { -- Autocompletion
         'hrsh7th/nvim-cmp',
         requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
     }
-
     use { -- Highlight, edit, and navigate code
         'nvim-treesitter/nvim-treesitter',
         run = function()
             pcall(require('nvim-treesitter.install').update { with_sync = true })
         end,
     }
-
-    -- Scrollbar
-    use { "petertriho/nvim-scrollbar",
-        config = function() require("scrollbar").setup()
-        end
-    }
-
     -- Git related plugins
     use { 'lewis6991/gitsigns.nvim',
         config = function() require('gitsigns').setup {
@@ -55,17 +39,16 @@ require('packer').startup(function(use)
                     changedelete = { text = '~' },
                 },
             }
-            require("scrollbar.handlers.gitsigns").setup()
         end
     }
-
-    use 'navarasu/onedark.nvim' -- Theme inspired by Atom
+    -- colorschemes
+    use { "catppuccin/nvim", as = "catppuccin" }
     -- Fancier statusline
     use { 'nvim-lualine/lualine.nvim',
         config = function() require('lualine').setup {
                 options = {
                     icons_enabled = false,
-                    theme = 'onedark',
+                    theme = 'catppuccin',
                     component_separators = '|',
                     section_separators = '',
                 },
@@ -91,29 +74,18 @@ require('packer').startup(function(use)
             require("which-key").setup({})
         end
     }
-    use { "nvim-tree/nvim-web-devicons" }
     use { "onsails/lspkind.nvim" }
-    use { "akinsho/toggleterm.nvim",
-        config = function() require('toggleterm').setup({
-                size = 10,
-                open_mapping = [[<c-\>]],
-                direction = "float",
-                close_on_exit = true,
-                shell = vim.o.shell
-            })
-        end
-    }
 
     -- File explorer
     use {
         "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-        requires = {
+          branch = "v2.x",
+          requires = {
             "nvim-lua/plenary.nvim",
-            "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim",
+          }
         }
-    }
 
     -- Tabs
     use({
@@ -122,12 +94,6 @@ require('packer').startup(function(use)
             require("bufferline").setup {}
         end
     })
-
-    -- Test runner
-    use { "klen/nvim-test" }
-
-    -- Java LSP
-    use {"mfussenegger/nvim-jdtls"}
 
     if is_bootstrap then
         require('packer').sync()

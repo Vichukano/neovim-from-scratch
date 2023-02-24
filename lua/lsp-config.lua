@@ -49,14 +49,8 @@ local servers = {
     -- pyright = {},
     rust_analyzer = {},
     jdtls = {},
+    lua_ls = {},
     -- tsserver = {},
-
-    sumneko_lua = {
-        Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-        },
-    },
 }
 --
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -82,9 +76,6 @@ mason_lspconfig.setup_handlers {
         }
     end,
 }
-
--- Turn on lsp status information
-require('fidget').setup()
 
 -- nvim-cmp setup
 local cmp = require 'cmp'

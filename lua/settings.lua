@@ -29,9 +29,10 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-local enabled, _ = pcall(require, 'onedark')
+vim.o.background = "dark"
+local enabled, _ = pcall(require, 'catppuccin')
 if enabled then
-    vim.cmd [[colorscheme onedark]]
+    vim.cmd [[colorscheme catppuccin-frappe]]
 end
 
 -- Set completeopt to have a better completion experience
